@@ -10,6 +10,8 @@ namespace LABY_programowanie_I
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Hello World!");
+            Console.ReadKey();
         }
     }
 }
