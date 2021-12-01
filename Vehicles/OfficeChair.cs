@@ -21,5 +21,14 @@ namespace Vehicles
             this.Velocity = Velocity;
             this.IsOccupied = isOccupied;
         }
+
+        public OfficeChair(Airboat airboat)
+        {
+            airboat.Accident += ResetSpeed;
+        }
+        public void ResetSpeed()
+        {
+            Velocity = 0;
+        }
     }
 }

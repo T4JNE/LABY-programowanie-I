@@ -11,21 +11,37 @@ namespace LABY_programowanie_I
     {
         static void Main(string[] args)
         {
-            OfficeChair krzeslo = new OfficeChair("Bob", 300, true);
+            Airboat lodz = new Airboat("Eduardo", 250, true);
+            OfficeChair krzeslo = new OfficeChair(lodz);
+            krzeslo.Velocity = 125;
 
-            krzeslo.OnVelocityChanged += (sender, e) => { Console.WriteLine("Predkosc krzesla zostala zmieniona!"); };
+            krzeslo.OnVelocityChanged += Krzeslo_OnVelocityChanged;
 
 
             krzeslo.Print();
+            Console.WriteLine();
 
             for (int i = 0; i < 6; i++)
             {
-                krzeslo.Velocity -= i * 10;
+                krzeslo.Velocity -= i * 5;
             }
+            krzeslo.Print();
+            Console.WriteLine("\n-----WYPADEK--------\n");
+
+            lodz.MakeAccident();
 
             krzeslo.Print();
+            Console.WriteLine();
+            lodz.Print();
+            Console.WriteLine();
 
             Console.ReadKey();
+        }
+
+        private static void Krzeslo_OnVelocityChanged(object sender, int e)
+        {
+            
+            Console.WriteLine("Predkosc zostala zmieniona!");
         }
     }
 }
