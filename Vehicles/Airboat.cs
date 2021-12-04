@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Vehicles
 {
-    class Airboat : Vehicle
+    class Airboat : Vehicle, IService
     {
         public delegate void AccidentEventHandler();
         public event AccidentEventHandler Accident;
@@ -30,9 +30,14 @@ namespace Vehicles
         {
             Accident.Invoke();
         }
-        public void ResetSpeed()
+        override public void ResetSpeed()
         {
             Velocity = 0;
+        }
+
+        public void MakeService()
+        {
+            Console.WriteLine("Przeprowadzono serwis pojazdu");
         }
     }
 }

@@ -35,12 +35,24 @@ namespace LABY_programowanie_I
             lodz.Print();
             Console.WriteLine();
 
+
+            try
+            {
+                TestException.TestThrow();
+                Console.WriteLine("Nie ma bledu");
+            }
+            catch (TestException)
+            {
+                Console.WriteLine("Catch: Error");
+            }
+
+
+
             Console.ReadKey();
         }
 
         private static void Krzeslo_OnVelocityChanged(object sender, int e)
         {
-            
             Console.WriteLine("Predkosc zostala zmieniona!");
         }
     }

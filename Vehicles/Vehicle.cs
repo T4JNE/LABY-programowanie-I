@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace Vehicles
 {
-    class Vehicle
+    interface IService
+    {
+        void MakeService();
+    }
+
+    abstract class Vehicle
     {
         public string Name { get; set; }
         private int _velocity;
@@ -25,7 +30,9 @@ namespace Vehicles
         }
         public bool IsOccupied { get; set; }
 
-        public event EventHandler<int> OnVelocityChanged; 
+        public event EventHandler<int> OnVelocityChanged;
+
+        abstract public void ResetSpeed();
         
         public void Print()
         {

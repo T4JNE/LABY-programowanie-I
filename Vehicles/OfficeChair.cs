@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Vehicles
 {
-    class OfficeChair : Vehicle
+    class OfficeChair : Vehicle, IService
     {
         public OfficeChair()
         {
@@ -26,9 +26,14 @@ namespace Vehicles
         {
             airboat.Accident += ResetSpeed;
         }
-        public void ResetSpeed()
+        override public void ResetSpeed()
         {
             Velocity = 0;
+        }
+
+        public void MakeService()
+        {
+            Console.WriteLine("Przeprowadzono serwis pojazdu");
         }
     }
 }
