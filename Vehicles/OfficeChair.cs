@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Vehicles
 {
-    class OfficeChair : Vehicle, IService
+    class OfficeChair : Vehicle
     {
         public OfficeChair()
         {
@@ -22,18 +22,9 @@ namespace Vehicles
             this.IsOccupied = isOccupied;
         }
 
-        public OfficeChair(Airboat airboat)
-        {
-            airboat.Accident += ResetSpeed;
-        }
         override public void ResetSpeed()
         {
             Velocity = 0;
-        }
-
-        public void MakeService()
-        {
-            Console.WriteLine("Przeprowadzono serwis pojazdu");
         }
     }
 }
